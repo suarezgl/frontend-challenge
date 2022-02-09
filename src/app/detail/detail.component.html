@@ -1,0 +1,58 @@
+<div class="spinner" *ngIf="isLoading === true">
+  <div class="loader"></div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <img src="/assets/img/bcp-icon.png">
+      <button (click)="goBack()" class="btn">Agencias</button>
+    </ul>
+  </div>
+</nav>
+
+
+<div aria-label="breadcrumb" class="breadcrumb-content"> 
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/login']">Inicio</a></li>
+    <li class="breadcrumb-item active"><a [routerLink]="['/home']">Listado</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Detalle</li>
+  </ol>
+</div>
+
+<div class="content">
+
+  <h3>Detalle de Agencia</h3>
+  <form [formGroup]="presenter.form">
+    <div class="form-group">
+      <div class="alert alert-success" role="alert" *ngIf="showAlert">
+        Se actualizaron los datos satisfactoriamente
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Nombre de Agencia</label>
+      <input input="text" formControlName="agencia">
+    </div>
+    <div class="form-group">
+      <label>Dirección</label>
+      <input input="text" formControlName="direccion">
+    </div>
+    <div class="form-group">
+      <label>Distrito</label>
+      <input input="text" formControlName="distrito">
+    </div>
+    <div class="form-group">
+      <label>Latitud</label>
+      <input input="text" formControlName="lat">
+    </div>
+    <div class="form-group">
+      <label>Longitud</label>
+      <input input="text" formControlName="lon">
+    </div>
+
+    <div class="button-row">
+      <button (click)="update()" class="button">Actualizar</button>
+    </div>
+  </form>
+</div>

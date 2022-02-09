@@ -1,0 +1,44 @@
+
+<div class="spinner" *ngIf="isLoading === true">
+  <div class="loader"></div>
+</div>
+
+<section class="dashboard" *ngIf="!isLoading">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <img src="/assets/img/bcp-icon.png" alt="logo">
+      </ul>
+    </div>
+  </nav>
+
+
+  <div aria-label="breadcrumb" class="breadcrumb-content"> 
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/login']">Inicio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Listado</li>
+    </ol>
+  </div>
+
+  <h3 class="title"> Listado de Agencias</h3>
+  <div *ngIf="agencies.length > 0" class="content">
+    <div class="sub-contanier">
+      <div class="content__box" *ngFor="let agencie of agencies;">
+        <div class="card" (click)="viewDetail(agencie.agencia)">
+          <div class="image">
+            <img src="" alt="icono" randomImg>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{agencie.agencia}}</h5>
+            <p class="card-text"><strong>Departamento:</strong> {{agencie.departamento}}</p>
+            <p class="card-text"><strong>Provincia:</strong> {{agencie.provincia}}</p>
+            <p class="card-text"><strong>Distrito:</strong> {{agencie.distrito}}</p>
+            <p class="card-text"><strong>Dirección:</strong> {{agencie.direccion}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
